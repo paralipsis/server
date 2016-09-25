@@ -18,8 +18,11 @@ public class ServerProtocol {
         this.request = r;
     }
 
+    public ServerProtocol(String s) {
+        this.request = new Request(s);
+    }
 
-    public int processRequest(){
+    public String processRequest(){
       switch(request.getRequestType()){
           case NEW_USER:
 
@@ -33,7 +36,10 @@ public class ServerProtocol {
           case GET_USER:
 
               break;
+          case ERROR:
+
+              break;
       }
-      return ERROR;
+      return "ERROR";
     }
 }

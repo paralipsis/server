@@ -32,6 +32,7 @@ public class Request {
         inStringScanner.close();
         if (!validateRequest(this.user)){
             //set user to null / error user
+            //set req type to ServerProtocl.Error;
         }
         //get accesscode for validation
     }

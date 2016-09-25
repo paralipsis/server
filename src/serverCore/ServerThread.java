@@ -19,20 +19,11 @@ public class ServerThread extends Thread {
                     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 ) {
-
-
                 String inputLine, outputLine;
-                /*KnockKnockProtocol kkp = new KnockKnockProtocol();
-                outputLine = kkp.processInput(null);
+                inputLine = in.readLine();
+                ServerProtocol sp = new ServerProtocol(inputLine);
+                outputLine = sp.processRequest();
                 out.println(outputLine);
-
-                while ((inputLine = in.readLine()) != null) {
-                    outputLine = kkp.processInput(inputLine);
-                    out.println(outputLine);
-                    if (outputLine.equals("Bye"))
-                        break;
-                        */
-                }
                 socket.close();
             } catch (IOException e) {
                 e.printStackTrace();
